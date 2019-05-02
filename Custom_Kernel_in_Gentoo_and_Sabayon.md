@@ -70,13 +70,16 @@ ntoo-updated initramfs
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --kernel-config=.config initramfs
 
 
-## Awesome / Gnome Tip and Trinks
+## Awesome / Gnome Tip and Triks
 ### avoid the gnome on screen keyboard also know as caribou or antler
     Comment the Exec lines from the follow files:
     /usr/share/dbus-1/services/org.gnome.Caribou.Antler.service  /usr/share/dbus-1/services/org.gnome.Caribou.Daemon.service
 
 For some reason gnome doesn't recognize the laptop keyboards and start it also if disabled
 
+Or use the follow plugin:
+
+    https://extensions.gnome.org/extension/1326/block-caribou/
 
 ### Error
 ./usr/gen_initramfs_list.sh: Cannot open '/var/tmp/genkernel/initramfs-4.20.0-sabayon.cpio
