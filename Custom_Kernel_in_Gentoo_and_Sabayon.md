@@ -1,4 +1,4 @@
-# Install a custome kernel in Gentoo or Sabayon 
+# Install a custome kernel in Gentoo or Sabayon
 Initial procedure written for Gentoo but the process to adapt it for Sabayon is ongoing.
 
 https://bugs.gentoo.org/show_bug.cgi?id=338084
@@ -20,12 +20,12 @@ ln -sf /usr/src/NEW_KERNEL /usr/src/linux
 
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --menuconfig all
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --gconfig all
-	
+
 ### or with the .config configuration and a custom kernel dir
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --kernel-config=.config --kerneldir=/usr/src/linux-3.17.7-ge
 ntoo all
 
-## STEP 2 
+## STEP 2
 ### Only if the kernel version is configured
 
 	cd /boot/grub
@@ -49,7 +49,7 @@ Reboot with the new kernel and an update the packages that depend on the kernel
 **SABAYON**
 
     equo install -pv $(equo query  revdeps sys-kernel/linux-sabayon-4.20.16 -q)
-  
+
 ## Try to use this to rebuild what you think is needed:
 
 	emerge -av1 $(qlist -IC xorg x11 drm)
@@ -66,12 +66,12 @@ Gentoo build new genkernel:
 
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --kernel-config=/etc/kernels/kernel-config-x86_64-3.14.14-ge
 ntoo-updated initramfs
-	
+
 	genkernel --symlink --save-config --no-mrproper --luks --lvm --udev --integrated-initramfs --compress-initramfs --kernel-config=.config initramfs
 
 
 ## Awesome / Gnome Tip and Trinks
-### avoid the gnome on screen keyboard also know as caribou or antler 
+### avoid the gnome on screen keyboard also know as caribou or antler
     Comment the Exec lines from the follow files:
     /usr/share/dbus-1/services/org.gnome.Caribou.Antler.service  /usr/share/dbus-1/services/org.gnome.Caribou.Daemon.service
 
