@@ -85,6 +85,16 @@ Or use the follow plugin:
 ./usr/gen_initramfs_list.sh: Cannot open '/var/tmp/genkernel/initramfs-4.20.0-sabayon.cpio
 remove the CONFIG_INITRAMFS_SOURCE line from the .config
 
-#### links
+The kernel boot process hang?
+---
+Check the initrd link in the grub.cfg file.
+
+    initrd  /intel-uc.img /initramfs-genkernel-x86_64-4.20.0-sabayon
+
+grub-mkconfig is creating the new entry with an initrd reference although it is not needed. Remove it from grub.cfg.
+Find a better way to handle it
+
+
+### links
 https://bbs.archlinux.org/viewtopic.php?id=188513
 https://www.reddit.com/r/archlinux/comments/2jjmvi/disable_caribou_in_gnome_314/
